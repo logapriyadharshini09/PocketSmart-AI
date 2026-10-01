@@ -1,0 +1,120 @@
+README.md
+LICENSE
+.gitignore
+.env.example
+requirements.txt
+# PocketSmart AI
+
+PocketSmart AI is an AI-powered budget recommendation assistant.
+
+## Features
+
+- Home Interior Planner
+- Party Planner
+- Jewelry Planner
+- Budget-based recommendations
+- Gemini AI integration
+- FastAPI backend
+- HTML frontend
+
+## Technologies
+
+- Python
+- FastAPI
+- Gemini AI
+- HTML
+- CSS
+- JavaScript
+
+## Installation
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+Create a .env file:
+
+GEMINI_API_KEY=your_api_key_here
+
+Run the application:
+
+uvicorn app.main:app --reload
+
+Open:
+
+http://127.0.0.1:8000
+
+## Security
+
+Never upload the .env file or your Gemini API key to GitHub.
+__pycache__/
+*.py[cod]
+
+.venv/
+venv/
+env/
+
+.env
+
+.vscode/
+.idea/
+
+.DS_Store
+*.log
+
+uploads/
+MIT License
+
+Copyright (c) 2026 PocketSmart AI Project
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files, to deal in the Software
+without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the
+Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+git init
+git add .
+git commit -m "Initial PocketSmart AI project"
+PocketSmart_AI/
+│
+├── phase_1/
+│   └── PHASE_1.md
+│
+├── phase_2/
+│   └── PHASE_2.md
+│
+├── phase_3/
+│   └── PHASE_3.md
+│
+├── phase_4/
+│   └── PHASE_4.md
+│
+├── phase_5/
+│   └── PHASE_5.md
+│
+├── phase_6/
+│   └── PHASE_6.md
+│
+├── phase_7/
+│   └── PHASE_7.md
+│
+├── phase_8/
+│   └── PHASE_8.md
+│
+├── app/
+│   ├── main.py
+│   ├── gemini_utils.py
+│   └── templates/
+│       └── index.html
+│
+├── README.md
+├── LICENSE
+├── .gitignore
+├── .env.example
+└── requirements.txt
