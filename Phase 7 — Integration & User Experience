@@ -1,0 +1,14 @@
+Home Page
+Register Page
+Login Page
+User Dashboard
+Home Budget planner
+Home Recommendations
+Party Budget Planner
+Party Recommendations
+Jewelry Budget Planner
+Jewelry Recommendations
+Recommendation History
+app/templates/
+app/main.py
+app/gemini_utils.py
