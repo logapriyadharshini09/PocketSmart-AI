@@ -1,0 +1,116 @@
+from fastapi import FastAPI, Request, Form
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+
+from .gemini_utils import generate_recommendation
+
+
+app = FastAPI(title="PocketSmart AI")
+
+templates = Jinja2Templates(
+    directory="app/templates"
+)
+
+
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "result": None
+        }
+    )
+
+
+@app.post("/generate-home", response_class=HTMLResponse)
+async def generate_home(
+    request: Request,
+    budget: str = Form(...),
+    room: str = Form(...),
+    preferences: str = Form("")
+):
+
+    data = {
+        "budget": budget,
+        "room": room,
+        "preferences": preferences
+    }
+
+    result = generate_recommendation(
+        "Home Interior",
+        data
+    )
+
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "result": result
+        }
+    )
+
+
+@app.post("/generate-party", response_class=HTMLResponse)
+async def generate_party(
+    request: Request,
+    budget: str = Form(...),
+    guests: str = Form(...),
+    event_type: str = Form(...)
+):
+
+    data = {
+        "budget": budget,
+        "guests": guests,
+        "event_type": event_type
+    }
+
+    result = generate_recommendation(
+        "Party Planning",
+        data
+    )
+
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "result": result
+        }
+    )
+
+
+@app.post("/generate-jewelry", response_class=HTMLResponse)
+async def generate_jewelry(
+    request: Request,
+    budget: str = Form(...),
+    occasion: str = Form(...),
+    style: str = Form("")
+):
+
+    data = {
+        "budget": budget,
+        "occasion": occasion,
+        "style": style
+    }
+
+    result = generate_recommendation(
+        "Jewelry",
+        data
+    )
+
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "result": result
+        }
+    )
+
+
+@app.get("/health")
+async def health():
+
+    return {
+        "status": "ok"
+    }
