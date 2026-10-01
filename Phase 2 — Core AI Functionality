@@ -1,0 +1,52 @@
+import os
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+load_dotenv()
+
+API_KEY = os.getenv("GEMINI_API_KEY")
+
+if API_KEY:
+    genai.configure(api_key=API_KEY)
+
+
+def get_model():
+    model_name = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
+    return genai.GenerativeModel(model_name)
+
+
+def build_prompt(planner, data):
+    return f"""
+You are PocketSmart AI, a budget-aware recommendation assistant.
+
+Planner: {planner}
+
+User Input:
+{data}
+
+Give practical recommendations within the user's budget.
+
+For every recommendation provide:
+1. Item or service
+2. Estimated price
+3. Platform or source
+4. Short reason
+
+Keep the recommendations clear and easy to understand.
+"""
+
+
+def generate_recommendation(planner, data):
+
+    if not API_KEY:
+        return "Gemini API key is missing. Please add GEMINI_API_KEY to .env"
+
+    try:
+        response = get_model().generate_content(
+            build_prompt(planner, data)
+        )
+
+        return response.text
+
+    except Exception as e:
+        return f"AI request failed: {e}"
