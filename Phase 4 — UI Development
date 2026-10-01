@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PocketSmart AI</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 18px 0;
+            border-radius: 12px;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 7px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .result {
+            white-space: pre-wrap;
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>PocketSmart AI</h1>
+
+
+<!-- HOME PLANNER -->
+
+<div class="card">
+
+    <h2>Home Interior Planner</h2>
+
+    <form method="post"
+          action="/generate-home">
+
+        <input
+            name="budget"
+            placeholder="Budget (Example: ₹25000)"
+            required
+        >
+
+        <input
+            name="room"
+            placeholder="Room (Example: Bedroom)"
+            required
+        >
+
+        <input
+            name="preferences"
+            placeholder="Style / Preferences"
+        >
+
+        <button type="submit">
+            Generate Home Recommendations
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- PARTY PLANNER -->
+
+<div class="card">
+
+    <h2>Party Planner</h2>
+
+    <form method="post"
+          action="/generate-party">
+
+        <input
+            name="budget"
+            placeholder="Budget"
+            required
+        >
+
+        <input
+            name="guests"
+            placeholder="Number of Guests"
+            required
+        >
+
+        <input
+            name="event_type"
+            placeholder="Event Type"
+            required
+        >
+
+        <button type="submit">
+            Generate Party Recommendations
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- JEWELRY PLANNER -->
+
+<div class="card">
+
+    <h2>Jewelry Planner</h2>
+
+    <form method="post"
+          action="/generate-jewelry">
+
+        <input
+            name="budget"
+            placeholder="Budget"
+            required
+        >
+
+        <input
+            name="occasion"
+            placeholder="Occasion"
+            required
+        >
+
+        <input
+            name="style"
+            placeholder="Style Preference"
+        >
+
+        <button type="submit">
+            Generate Jewelry Recommendations
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- AI RESULT -->
+
+{% if result %}
+
+<div class="card">
+
+    <h2>AI Recommendations</h2>
+
+    <div class="result">
+        {{ result }}
+    </div>
+
+</div>
+
+{% endif %}
+
+
+</body>
+
+</html>
