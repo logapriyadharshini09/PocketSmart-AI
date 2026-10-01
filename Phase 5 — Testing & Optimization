@@ -1,0 +1,12 @@
+Budget: ₹25,000
+Room: Bedroom
+Preference: Modern
+Budget: ₹50,000
+Guests: 50
+Event: Birthday
+Budget: ₹10,000
+Occasion: Wedding
+Style: Traditional
+app/gemini_utils.py
+app/main.py
+app/templates/index.html
